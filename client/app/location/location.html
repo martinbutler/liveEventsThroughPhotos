@@ -1,0 +1,22 @@
+<div ng-include="'components/navbar/navbar.html'"></div>
+
+<script type="text/ng-template" id="searchbox.tpl.html">
+  <input type="text" placeholder="Search Box" id="pac-input">
+</script>
+
+<ui-gmap-google-map center='map.center' zoom='map.zoom'>
+  <ui-gmap-search-box template="searchbox.template" events="searchbox.events">
+  </ui-gmap-search-box>
+  
+  <ui-gmap-marker coords="marker.coords" options="marker.options" events="marker.events" idkey="marker.id">
+  </ui-gmap-marker>
+
+</ui-gmap-google-map>
+
+<footer class="footer">
+  <div class="container">
+      <p>LiveEventsThroughPhotos v1.0.0 |
+        <a href="http://martinbutler.com/">Martin's Website</a> |
+         <a href="https://www.linkedin.com/in/martinebutler">LinkedIn</a></p>
+  </div>
+</footer>
