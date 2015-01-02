@@ -11,7 +11,7 @@ angular.module('liveEventsThroughPhotosApp')
     $scope.imageFour = 19;
 
     $scope.onTimeout = function(){
-        if ($scope.imageFour = 19) {
+        if ($scope.imageFour == 19) {
           $http.get('/api/instagrams/tag/'+$scope.tag).success(function(photoData) {
             $scope.photoData = photoData;
           });
