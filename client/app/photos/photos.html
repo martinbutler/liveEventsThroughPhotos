@@ -1,13 +1,13 @@
 <div ng-include="'components/navbar/navbar.html'"></div>
-<div>
-<button class="btn btn-success hashtag">Current #{{tag}}</button>
+<div class='center'>
+<button class="btn btn-success hashtag">#{{tag}}</button>
 <button name="userForm" ng-required='!newTag' class='btn btn-primary tagForm' ng-click="updateTag()">
     Enter New tag: #
 </button>
 <input class="tagInput" type="text" ng-model="newTag" ng-keydown="keypress($event)"/>
 </div>
 
-<div class='photoGroup'>
+<div class='photoGroup center'>
   <a href="{{link}}" title="{{photoData[imageOne].text}}" target="_blank">
       <img class='pics' src="{{photoData[imageOne].images.standard_resolution.url}}" alt="{{photoData[imageOne].caption.text}}" />
   </a>

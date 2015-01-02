@@ -12,7 +12,7 @@ router.put('/:id', controller.update);
 router.patch('/:id', controller.update);
 router.delete('/:id', controller.destroy);
 
-router.get('/tag/:tag', controller.tag);
+router.post('/tag', controller.tag);
 
 router.get('/callback', controller.instCallback);
 router.post('/callback', controller.postCallback);

@@ -29,9 +29,8 @@ exports.init = function(req, res, body) {
 }
 
 exports.tag = function(req, res) {
-  console.log(req.params.tag);
   Instagram.tags.recent({
-  name: req.params.tag,
+  name: req.body.tag,
   complete: function(instagram){
     return res.json(200, instagram);
     }

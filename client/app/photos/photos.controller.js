@@ -4,7 +4,7 @@ angular.module('liveEventsThroughPhotosApp')
   .controller('PhotosCtrl', function ($scope, $http, socket, $timeout) {
     
     $scope.photoData = [];
-    $scope.tag='nyc';
+    $scope.tag = 'nyc';
     $scope.imageOne = 0;
     $scope.imageTwo = 1;
     $scope.imageThree = 2;
@@ -12,7 +12,7 @@ angular.module('liveEventsThroughPhotosApp')
 
     $scope.onTimeout = function(){
         if ($scope.imageFour == 19) {
-          $http.get('/api/instagrams/tag/'+$scope.tag).success(function(photoData) {
+          $http.post('/api/instagrams/tag', {tag: $scope.tag}).success(function(photoData) {
             $scope.photoData = photoData;
           });
           $scope.imageOne = 0;
