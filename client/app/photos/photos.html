@@ -1,3 +1,23 @@
-<div class="col-md-12">
-This is the photos view.
+<div ng-include="'components/navbar/navbar.html'"></div>
+<div>
+<button class="btn btn-primary hashtag"  ng-click="">#{{tag}}</button>
 </div>
+<a href="{{link}}" title="{{photoData[imageOne].text}}" target="_blank">
+    <img class='pics' src="{{photoData[imageOne].images.standard_resolution.url}}" alt="{{photoData[imageOne].caption.text}}" />
+</a>
+<a href="{{link}}" title="{{photoData[imageTwo].caption.text}}" target="_blank">
+    <img class='pics' src="{{photoData[imageTwo].images.standard_resolution.url}}" alt="{{photoData[imageTwo].caption.text}}" />
+</a>
+<a href="{{link}}" title="{{photoData[imageThree].caption.text}}" target="_blank">
+    <img class='pics' src="{{photoData[imageThree].images.standard_resolution.url}}" alt="{{photoData[imageThree].caption.text}}" />
+</a>
+<a href="{{link}}" title="{{photoData[imageFour].caption.text}}" target="_blank">
+    <img class='pics' src="{{photoData[imageFour].images.standard_resolution.url}}" alt="{{photoData[imageFour].caption.text}}" />
+</a>
+
+
+<!-- <div class='pics' ng-repeat="photo in photoData">
+  <a href="{{link}}" title="{{caption.text}}" target="_blank">
+    <img class='pics' src="{{photo.images.standard_resolution.url}}" alt="{{caption.text}}" />
+  </a>
+</div> -->

@@ -7,7 +7,6 @@ angular.module('liveEventsThroughPhotosApp')
       'link': '/'
     }, {
       'title': 'Select a Location',
-      // 'icon': '<i class="fa fa-map-marker"></i>',
       'link': '/location'
     }, {
       'title': 'View Photos',

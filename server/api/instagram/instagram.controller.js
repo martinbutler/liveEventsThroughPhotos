@@ -1,14 +1,57 @@
 'use strict';
 
 var _ = require('lodash');
-var Instagram = require('./instagram.model');
+// var Instagram = require('./instagram.model');
 
+var Instagram = require('instagram-node-lib');
+
+Instagram.set('client_id', process.env.INSTAGRAM_ID);
+Instagram.set('client_secret', process.env.INSTAGRAM_SECRET);
+Instagram.set('callback_url', 'http://liveeventsthroughphotos.herokuapp.com/api/instagrams/callback');
+Instagram.set('redirect_uri', 'http://liveeventsthroughphotos.herokuapp.com/');
+
+exports.instCallback = function(req, res) {
+  Instagram.subscriptions.handshake(req, res);
+}
+
+exports.postCallback = function(req, res) {
+  console.log('POSTPOSTPOSTPOST');
+  var data = req.body;
+  console.log('&*&&*&*&*&*&*&*&*&', req.body);
+  data.forEach(function(media) {
+  });
+  res.end();
+}
+
+exports.init = function(req, res, body) {
+  // postdata.push('end');
+  return res.json(200, posturl);
+}
+
+exports.tag = function(req, res) {
+  Instagram.tags.recent({
+  name: 'nyc',
+  complete: function(instagram){
+    return res.json(200, instagram);
+    }
+  });
+};
+
+// orginal VVVVVVVVV
 // Get list of instagrams
 exports.index = function(req, res) {
-  Instagram.find(function (err, instagrams) {
-    if(err) { return handleError(res, err); }
-    return res.json(200, instagrams);
-  });
+
+  Instagram.tags.recent({
+  name: req.params.tag,
+  complete: function(instagram){
+    return res.json(200, instagram);
+  }
+});
+
+  // Instagram.find(function (err, instagrams) {
+  //   if(err) { return handleError(res, err); }
+  //   return res.json(200, instagrams);
+  // });
 };
 
 // Get a single instagram
