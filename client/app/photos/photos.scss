@@ -1,10 +1,27 @@
+
+// .hashtag {
+//   margin: -20px 0px 0px 5px;
+// }
+.tagInput {
+  float: left;
+  margin: -10px 5px 5px 5px;
+}
+.tagForm {
+  float: left;
+  margin: -15px 5px 5px 5px;
+}
+
+.hashtag {
+  float: left;
+  margin: -15px 5px 5px 5px;
+}
+.photoGroup {
+  clear: left;
+}
 .pics {
   float:left; 
   // padding:10px;
   // width:  480px;
   // height: 480px;
   max-width: 100%;
-}
-.hashtag {
-  margin: -20px 0px 0px 5px;
 }

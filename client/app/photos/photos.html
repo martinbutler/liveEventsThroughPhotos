@@ -1,20 +1,26 @@
 <div ng-include="'components/navbar/navbar.html'"></div>
 <div>
-<button class="btn btn-primary hashtag"  ng-click="">#{{tag}}</button>
+<button class="btn btn-success hashtag">Current #{{tag}}</button>
+<button name="userForm" ng-required='!newTag' class='btn btn-primary tagForm' ng-click="updateTag()">
+    Enter New tag: #
+</button>
+<input class="tagInput" type="text" ng-model="newTag" ng-keydown="keypress($event)"/>
 </div>
-<a href="{{link}}" title="{{photoData[imageOne].text}}" target="_blank">
-    <img class='pics' src="{{photoData[imageOne].images.standard_resolution.url}}" alt="{{photoData[imageOne].caption.text}}" />
-</a>
-<a href="{{link}}" title="{{photoData[imageTwo].caption.text}}" target="_blank">
-    <img class='pics' src="{{photoData[imageTwo].images.standard_resolution.url}}" alt="{{photoData[imageTwo].caption.text}}" />
-</a>
-<a href="{{link}}" title="{{photoData[imageThree].caption.text}}" target="_blank">
-    <img class='pics' src="{{photoData[imageThree].images.standard_resolution.url}}" alt="{{photoData[imageThree].caption.text}}" />
-</a>
-<a href="{{link}}" title="{{photoData[imageFour].caption.text}}" target="_blank">
-    <img class='pics' src="{{photoData[imageFour].images.standard_resolution.url}}" alt="{{photoData[imageFour].caption.text}}" />
-</a>
 
+<div class='photoGroup'>
+  <a href="{{link}}" title="{{photoData[imageOne].text}}" target="_blank">
+      <img class='pics' src="{{photoData[imageOne].images.standard_resolution.url}}" alt="{{photoData[imageOne].caption.text}}" />
+  </a>
+  <a href="{{link}}" title="{{photoData[imageTwo].caption.text}}" target="_blank">
+      <img class='pics' src="{{photoData[imageTwo].images.standard_resolution.url}}" alt="{{photoData[imageTwo].caption.text}}" />
+  </a>
+  <a href="{{link}}" title="{{photoData[imageThree].caption.text}}" target="_blank">
+      <img class='pics' src="{{photoData[imageThree].images.standard_resolution.url}}" alt="{{photoData[imageThree].caption.text}}" />
+  </a>
+  <a href="{{link}}" title="{{photoData[imageFour].caption.text}}" target="_blank">
+      <img class='pics' src="{{photoData[imageFour].images.standard_resolution.url}}" alt="{{photoData[imageFour].caption.text}}" />
+  </a>
+</div>
 
 <!-- <div class='pics' ng-repeat="photo in photoData">
   <a href="{{link}}" title="{{caption.text}}" target="_blank">

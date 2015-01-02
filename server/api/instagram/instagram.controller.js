@@ -29,8 +29,9 @@ exports.init = function(req, res, body) {
 }
 
 exports.tag = function(req, res) {
+  console.log(req.params.tag);
   Instagram.tags.recent({
-  name: 'nyc',
+  name: req.params.tag,
   complete: function(instagram){
     return res.json(200, instagram);
     }

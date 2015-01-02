@@ -29,6 +29,18 @@ angular.module('liveEventsThroughPhotosApp')
     }
     var mytimeout = $timeout($scope.onTimeout,1);
 
+    $scope.updateTag = function () {
+      if ($scope.newTag === undefined) {return};
+      $scope.tag = $scope.newTag;
+      $scope.imageFour = 19;
+      $scope.newTag = "";
+    }
+
+    $scope.keypress = function($event) {
+      if($event.keyCode == 13) {
+        $scope.updateTag();
+      }
+    };
     // $scope.addinstagram = function() {
     //   if($scope.newinstagram === '') {
     //     return;
