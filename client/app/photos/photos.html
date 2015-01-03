@@ -1,13 +1,33 @@
 <div ng-include="'components/navbar/navbar.html'"></div>
 <div class='center'>
-<button class="btn btn-success hashtag">#{{tag}}</button>
-<button name="userForm" ng-required='!newTag' class='btn btn-primary tagForm' ng-click="updateTag()">
-    Enter New tag: #
+<button 
+  class="btn btn-success hashtag" ng-show='tag'
+  data-toggle="tooltip" data-placement="bottom"
+  title="Current tag for photos"
+  tooltip-placement="bottom">
+  #{{tag}}
 </button>
-<input class="tagInput" type="text" ng-model="newTag" ng-keydown="keypress($event)"/>
+<!-- <button name="userForm" class='btn btn-primary tagForm' ng-click="updateTag()">
+  Enter New tag: #
+</button>
+<input class="tagInput" type="text" ng-model="newTag" ng-keydown="keypress($event)"/> -->
+<button 
+  data-toggle="tooltip" data-placement="bottom"
+  title="Click to select a geo location for photos"
+  tooltip-placement="bottom" 
+  class ='btn btn-primary tagForm locArrow fa fa-location-arrow'>
+</button> 
+<form class="form-wrapper cf hashtag" 
+  data-toggle="tooltip" data-placement="bottom"
+  title="Submit new tag for photos"
+  tooltip-placement="bottom">
+  <input type="text" placeholder="Enter new tag..." ng-model="newTag">
+  <button class='btn btn-primary' ng-click="updateTag()">#</button>
+</form>
+
 </div>
 
-<div class='photoGroup center'>
+<div class='clearIt center'>
   <a href="{{link}}" title="{{photoData[imageOne].text}}" target="_blank">
       <img class='pics' src="{{photoData[imageOne].images.standard_resolution.url}}" alt="{{photoData[imageOne].caption.text}}" />
   </a>
@@ -22,8 +42,10 @@
   </a>
 </div>
 
-<!-- <div class='pics' ng-repeat="photo in photoData">
-  <a href="{{link}}" title="{{caption.text}}" target="_blank">
-    <img class='pics' src="{{photo.images.standard_resolution.url}}" alt="{{caption.text}}" />
-  </a>
-</div> -->
+<footer class="footer clearIt">
+  <div class="container">
+      <p>LiveEventsThroughPhotos v1.0.0 |
+        <a href="http://martinbutler.com/">Martin's Website</a> |
+         <a href="https://www.linkedin.com/in/martinebutler">LinkedIn</a></p>
+  </div>
+</footer>

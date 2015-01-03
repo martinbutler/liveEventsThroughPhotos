@@ -4,13 +4,16 @@ angular.module('liveEventsThroughPhotosApp')
   .controller('NavbarCtrl', function ($scope, $location, Auth) {
     $scope.menu = [{
       'title': 'Home',
-      'link': '/'
+      'link': '/',
+      'classInfo': 'fa fa-home'
     }, {
       'title': 'Select a Location',
-      'link': '/location'
+      'link': '/location',
+      'classInfo': 'fa fa-map-marker'
     }, {
       'title': 'View Photos',
-      'link': '/photos'
+      'link': '/photos',
+      'classInfo': 'fa fa-camera'
     }];
 
     $scope.isCollapsed = true;

@@ -11,8 +11,8 @@ angular.module('liveEventsThroughPhotosApp')
     $scope.imageFour = 19;
 
     $scope.onTimeout = function(){
-        if ($scope.imageFour == 19) {
-          $http.post('/api/instagrams/tag', {tag: $scope.tag}).success(function(photoData) {
+        if ($scope.photoData.length <= $scope.imageFour + 4) {
+          $http.post('/api/instagrams/location', {tag: $scope.tag}).success(function(photoData) {
             $scope.photoData = photoData;
           });
           $scope.imageOne = 0;
@@ -30,6 +30,7 @@ angular.module('liveEventsThroughPhotosApp')
     var mytimeout = $timeout($scope.onTimeout,1);
 
     $scope.updateTag = function () {
+      console.log('updatetag', $scope.newTag);
       if ($scope.newTag === undefined) {return};
       $scope.tag = $scope.newTag;
       $scope.imageFour = 19;

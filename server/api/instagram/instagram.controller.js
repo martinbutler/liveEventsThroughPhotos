@@ -29,6 +29,7 @@ exports.init = function(req, res, body) {
 }
 
 exports.tag = function(req, res) {
+  console.log('req.body', req.body);
   Instagram.tags.recent({
   name: req.body.tag,
   complete: function(instagram){
@@ -36,6 +37,18 @@ exports.tag = function(req, res) {
     }
   });
 };
+
+exports.bylocation = function(req, res) {
+  Instagram.media.search({ 
+    lat: 40.758895, 
+    lng: -73.985131, 
+    radius: 300, 
+    complete: function(instagram) {
+      return res.json(200, instagram);
+    }
+  });
+
+}
 
 // orginal VVVVVVVVV
 // Get list of instagrams

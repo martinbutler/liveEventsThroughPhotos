@@ -1,22 +1,48 @@
 <div ng-include="'components/navbar/navbar.html'"></div>
+<button 
+  ng-show={{markers}}
+  class ='btn btn-primary tagForm locArrow fa fa-camera' ng-click="showPhotos()">
+   Show Photos
+</button> 
 
-<script type="text/ng-template" id="searchbox.tpl.html">
-  <input type="text" placeholder="Search Box" id="pac-input">
-</script>
+<div class='clearIt'>
+  <script type="text/ng-template" id="searchbox.tpl.html">
+    <input type="text" placeholder="Enter an address or landmark (i.e. Central Park)" id="pac-input">
+  </script>
 
-<ui-gmap-google-map center='map.center' zoom='map.zoom'>
-  <ui-gmap-search-box template="searchbox.template" events="searchbox.events">
-  </ui-gmap-search-box>
+  <ui-gmap-google-map center='map.center' zoom='map.zoom'>
+    <ui-gmap-search-box template="searchbox.template" events="searchbox.events">
+    </ui-gmap-search-box>
+    
+    <ui-gmap-marker 
+      ng-repeat="marker in markers"
+      coords="marker.coords" 
+      options="marker.options" 
+      events="marker.events" 
+      idkey="marker.id"
+      icon="marker.options.icon"
+      click="markerClick(marker.id)">{{marker.icon}}
+    </ui-gmap-marker>
+
+
+  </ui-gmap-google-map>
+</div>
+<div class='clearIt'>
+  <h4>Selecting A Location:</h4>
+  <p>
+  Enter an address or search for a place (i.e. French Quarter, Parks near New York).<br>
+  If you search renders more then one result, click on your desired marker to turn it blue.<br>
+  You can refine your position by draggin the blue marker to desired location.<br>
+  When you are ready to start viewing photos, just click the button at the top of the page!</p>
   
-  <ui-gmap-marker coords="marker.coords" options="marker.options" events="marker.events" idkey="marker.id">
-  </ui-gmap-marker>
+</div>
 
-</ui-gmap-google-map>
 
 <footer class="footer">
   <div class="container">
-      <p>LiveEventsThroughPhotos v1.0.0 |
-        <a href="http://martinbutler.com/">Martin's Website</a> |
-         <a href="https://www.linkedin.com/in/martinebutler">LinkedIn</a></p>
+    <p>LiveEventsThroughPhotos v1.0.0 |
+      <a href="http://martinbutler.com/">Martin's Website</a> |
+      <a href="https://www.linkedin.com/in/martinebutler">LinkedIn</a>
+    </p>
   </div>
 </footer>

@@ -11,8 +11,13 @@
     </div>
     <div collapse="isCollapsed" class="navbar-collapse collapse" id="navbar-main">
       <ul class="nav navbar-nav">
-        <li ng-repeat="item in menu" ng-class="{active: isActive(item.link)}">
-            <a ng-href="{{item.link}}">{{item.title}}</a>
+        <li ng-repeat="item in menu" ng-class="{active: isActive(item.link)}" >
+          <a 
+            data-toggle="tooltip" data-placement="left"
+            title="{{item.title}}"
+            tooltip-placement="bottom"
+            class="{{item.classInfo}}" ng-href="{{item.link}}"> 
+          </a>
         </li>
         <li ng-show="isAdmin()" ng-class="{active: isActive('/admin')}"><a href="/admin">Admin</a></li>
       </ul>

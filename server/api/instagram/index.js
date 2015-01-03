@@ -13,6 +13,8 @@ router.patch('/:id', controller.update);
 router.delete('/:id', controller.destroy);
 
 router.post('/tag', controller.tag);
+router.post('/location', controller.bylocation);
+
 
 router.get('/callback', controller.instCallback);
 router.post('/callback', controller.postCallback);
