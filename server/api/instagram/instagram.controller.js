@@ -29,7 +29,6 @@ exports.init = function(req, res, body) {
 }
 
 exports.tag = function(req, res) {
-  console.log('req.body', req.body);
   Instagram.tags.recent({
   name: req.body.tag,
   complete: function(instagram){
@@ -39,7 +38,6 @@ exports.tag = function(req, res) {
 };
 
 exports.bylocation = function(req, res) {
-  console.log('req', req.body.lat);
   Instagram.media.search({ 
     lat: req.body.lat, 
     lng: req.body.lng, 
