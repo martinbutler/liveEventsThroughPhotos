@@ -39,9 +39,10 @@ exports.tag = function(req, res) {
 };
 
 exports.bylocation = function(req, res) {
+  console.log('req', req.body.lat);
   Instagram.media.search({ 
-    lat: 40.758895, 
-    lng: -73.985131, 
+    lat: req.body.lat, 
+    lng: req.body.lng, 
     radius: 300, 
     complete: function(instagram) {
       return res.json(200, instagram);
@@ -53,18 +54,10 @@ exports.bylocation = function(req, res) {
 // orginal VVVVVVVVV
 // Get list of instagrams
 exports.index = function(req, res) {
-
-  Instagram.tags.recent({
-  name: req.params.tag,
-  complete: function(instagram){
-    return res.json(200, instagram);
-  }
-});
-
-  // Instagram.find(function (err, instagrams) {
-  //   if(err) { return handleError(res, err); }
-  //   return res.json(200, instagrams);
-  // });
+  Instagram.find(function (err, instagrams) {
+    if(err) { return handleError(res, err); }
+    return res.json(200, instagrams);
+  });
 };
 
 // Get a single instagram

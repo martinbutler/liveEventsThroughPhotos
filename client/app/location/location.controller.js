@@ -61,7 +61,6 @@ angular.module('liveEventsThroughPhotosApp')
             },
             events: {
               dragend: function (marker, eventName, args) {
-                console.log('dragend marker', marker);
                 var lat = marker.getPosition().lat();
                 var lon = marker.getPosition().lng();
                   $scope.map = {
@@ -79,6 +78,7 @@ angular.module('liveEventsThroughPhotosApp')
           $scope.markers.push(marker);
         }
         $scope.markers[0].options.icon = 'assets/images/blue_marker.png'
+        $scope.photosByLocation = $scope.markers[0];
 
         $scope.map = {
           center: {
@@ -117,8 +117,7 @@ angular.module('liveEventsThroughPhotosApp')
     };
 
     $scope.showPhotos = function(marker) {
-      console.log($scope.photosByLocation);
-      // $window.location.href = '/photos/$';
+      $window.location.href = '/photos/' + $scope.photosByLocation.coords.latitude + '/' + $scope.photosByLocation.coords.longitude;
     }
 
   });

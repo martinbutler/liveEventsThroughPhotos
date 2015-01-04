@@ -1,11 +1,18 @@
 <div ng-include="'components/navbar/navbar.html'"></div>
 <div class='center'>
-<button 
+<button ng-show="tag"
   class="btn btn-success hashtag" ng-show='tag'
   data-toggle="tooltip" data-placement="bottom"
   title="Current tag for photos"
   tooltip-placement="bottom">
   #{{tag}}
+</button>
+<button ng-show="geoTag"
+  class="btn btn-success hashtag locArrow fa fa-location-arrow" ng-show='tag'
+  data-toggle="tooltip" data-placement="bottom"
+  title="Using a geotag for photos"
+  tooltip-placement="bottom">
+  by location
 </button>
 <!-- <button name="userForm" class='btn btn-primary tagForm' ng-click="updateTag()">
   Enter New tag: #
@@ -15,7 +22,8 @@
   data-toggle="tooltip" data-placement="bottom"
   title="Click to select a geo location for photos"
   tooltip-placement="bottom" 
-  class ='btn btn-primary tagForm locArrow fa fa-location-arrow'>
+  class ='btn btn-primary tagForm locArrow fa fa-location-arrow'
+  ng-click="updateGeoTag()">
 </button> 
 <form class="form-wrapper cf hashtag" 
   data-toggle="tooltip" data-placement="bottom"

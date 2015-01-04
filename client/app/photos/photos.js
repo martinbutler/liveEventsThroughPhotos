@@ -7,5 +7,10 @@ angular.module('liveEventsThroughPhotosApp')
         url: '/photos',
         templateUrl: 'app/photos/photos.html',
         controller: 'PhotosCtrl'
+      })
+      .state('coords', {
+        url: '/photos/:lat/:long',
+        templateUrl: 'app/photos/photos.html',
+        controller: 'PhotosCtrl'
       });
   });
