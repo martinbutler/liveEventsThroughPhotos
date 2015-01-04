@@ -62,6 +62,7 @@ angular.module('liveEventsThroughPhotosApp')
     $scope.updateGeoTag = function () {
       $window.location.href = '/location';
     }
+
     // $scope.addinstagram = function() {
     //   if($scope.newinstagram === '') {
     //     return;
