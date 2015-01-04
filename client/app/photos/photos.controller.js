@@ -34,7 +34,6 @@ angular.module('liveEventsThroughPhotosApp')
     $scope.onTimeout = function(){
         if ($scope.photoData.length <= $scope.imageFour + $scope.showPhotoNumber) {
           if (photoByLoc) {
-            console.log('ding');
             $http.post('/api/instagrams/location', {lat: $stateParams.lat, lng: $stateParams.long}).success(function(photoData) {
               $scope.photoData = photoData;
             });
