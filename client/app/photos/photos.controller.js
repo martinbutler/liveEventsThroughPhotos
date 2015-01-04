@@ -8,8 +8,8 @@ angular.module('liveEventsThroughPhotosApp')
       // trigger: 'hover'
     });
   })
-  .config(function($tooltipProvider) {
-    angular.extend($tooltipProvider.defaults, {
+  .config(function($bsTooltipProvider) {
+    angular.extend($bsTooltipProvider.defaults, {
       animation: 'am-flip-x',
       trigger: 'hover'
     });
@@ -58,7 +58,6 @@ angular.module('liveEventsThroughPhotosApp')
 
     $scope.updateTag = function () {
       $scope.geoTag = photoByLoc = false;
-      console.log('updatetag', $scope.newTag);
       if ($scope.newTag === undefined) {return};
       $scope.tag = $scope.newTag;
       $scope.imageFour = 19;
