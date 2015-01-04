@@ -57,7 +57,7 @@ angular.module('liveEventsThroughPhotosApp')
     var mytimeout = $timeout($scope.onTimeout,1);
 
     $scope.updateTag = function () {
-      $scope.geoTag = photoByLoc = false;
+      $scope.geoTag = photoByLoc = false; 
       if ($scope.newTag === undefined) {return};
       $scope.tag = $scope.newTag;
       $scope.imageFour = 19;

@@ -16,16 +16,15 @@
     ng-click="updateGeoTag()">
   </button> 
   <form 
-    data-title="Submit new tag for photos" placement="right" bs-tooltip
     class="form-wrapper cf hashtag">
-    <input type="text" placeholder="Enter new tag..." ng-model="newTag">
-    <button class='btn btn-primary' ng-click="updateTag()">#</button>
+    <input type="text" placeholder="Enter new tag..." ng-model="newTag" ng-keydown="keypress($event)">
+    <button class='btn btn-primary'>#</button>
   </form>
   <button 
   data-title="Change the number of photos" bs-tooltip
   type="button" class="btn btn-success hashtag" data-animation="am-flip-x" bs-dropdown="dropdown">{{showPhotoNumber}}
   </button>
-
+{{newTag}}
 </div>
 
 <div class='clearIt center'>
