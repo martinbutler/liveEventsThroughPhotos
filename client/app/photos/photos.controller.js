@@ -9,21 +9,22 @@ angular.module('liveEventsThroughPhotosApp')
     $scope.imageTwo = 1;
     $scope.imageThree = 2;
     $scope.imageFour = 19;
+    $scope.showPhotoNumber = 4;
 
     $scope.onTimeout = function(){
-        if ($scope.photoData.length <= $scope.imageFour + 4) {
+        if ($scope.photoData.length <= $scope.imageFour + $scope.showPhotoNumber) {
           $http.post('/api/instagrams/location', {tag: $scope.tag}).success(function(photoData) {
             $scope.photoData = photoData;
           });
           $scope.imageOne = 0;
           $scope.imageTwo = 1;
           $scope.imageThree = 2;
-          $scope.imageFour = 3;
+          $scope.imageFour = $scope.showPhotoNumber;
         } else {
-          $scope.imageOne += 4;
-          $scope.imageTwo += 4;
-          $scope.imageThree += 4;
-          $scope.imageFour += 4;
+          $scope.imageOne += $scope.showPhotoNumber;
+          $scope.imageTwo += $scope.showPhotoNumber;
+          $scope.imageThree += $scope.showPhotoNumber;
+          $scope.imageFour += $scope.showPhotoNumber;
         }
         mytimeout = $timeout($scope.onTimeout,4000);
     }
