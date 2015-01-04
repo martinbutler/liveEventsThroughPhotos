@@ -13,9 +13,7 @@
       <ul class="nav navbar-nav">
         <li ng-repeat="item in menu" ng-class="{active: isActive(item.link)}" >
           <a 
-            data-toggle="tooltip" data-placement="left"
-            title="{{item.title}}"
-            tooltip-placement="bottom"
+            data-title="{{item.title}}" placement="right" bs-tooltip
             class="{{item.classInfo}}" ng-href="{{item.link}}"> 
           </a>
         </li>

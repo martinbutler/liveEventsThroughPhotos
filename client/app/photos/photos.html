@@ -1,37 +1,30 @@
 <div ng-include="'components/navbar/navbar.html'"></div>
 <div class='center'>
-<button ng-show="tag"
-  class="btn btn-success hashtag" ng-show='tag'
-  data-toggle="tooltip" data-placement="bottom"
-  title="Current tag for photos"
-  tooltip-placement="bottom">
-  #{{tag}}
-</button>
-<button ng-show="geoTag"
-  class="btn btn-success hashtag locArrow fa fa-location-arrow" ng-show='tag'
-  data-toggle="tooltip" data-placement="bottom"
-  title="Using a geotag for photos"
-  tooltip-placement="bottom">
-  by location
-</button>
-<!-- <button name="userForm" class='btn btn-primary tagForm' ng-click="updateTag()">
-  Enter New tag: #
-</button>
-<input class="tagInput" type="text" ng-model="newTag" ng-keydown="keypress($event)"/> -->
-<button 
-  data-toggle="tooltip" data-placement="bottom"
-  title="Click to select a geo location for photos"
-  tooltip-placement="bottom" 
-  class ='btn btn-primary tagForm locArrow fa fa-location-arrow'
-  ng-click="updateGeoTag()">
-</button> 
-<form class="form-wrapper cf hashtag" 
-  data-toggle="tooltip" data-placement="bottom"
-  title="Submit new tag for photos"
-  tooltip-placement="bottom">
-  <input type="text" placeholder="Enter new tag..." ng-model="newTag">
-  <button class='btn btn-primary' ng-click="updateTag()">#</button>
-</form>
+  <button ng-show="tag"
+    data-title="Current tag for photos" placement="right" bs-tooltip
+    class="btn btn-success hashtag">
+    #{{tag}}
+  </button>
+  <button ng-show="geoTag"
+    data-title="Currently using a geotag for photos" placement="right" bs-tooltip
+    class="btn btn-success hashtag locArrow fa fa-location-arrow" ng-show='tag'>
+     by location
+  </button>
+  <button 
+    data-title="Click to select a geo location for photos" placement="right" bs-tooltip
+    class ='btn btn-primary tagForm locArrow fa fa-location-arrow'
+    ng-click="updateGeoTag()">
+  </button> 
+  <form 
+    data-title="Submit new tag for photos" placement="right" bs-tooltip
+    class="form-wrapper cf hashtag">
+    <input type="text" placeholder="Enter new tag..." ng-model="newTag">
+    <button class='btn btn-primary' ng-click="updateTag()">#</button>
+  </form>
+  <button 
+  data-title="Change the number of photos" bs-tooltip
+  type="button" class="btn btn-success hashtag" data-animation="am-flip-x" bs-dropdown="dropdown">{{showPhotoNumber}}
+  </button>
 
 </div>
 
@@ -39,13 +32,13 @@
   <a href="{{link}}" title="{{photoData[imageOne].text}}" target="_blank">
       <img class='pics' src="{{photoData[imageOne].images.standard_resolution.url}}" alt="{{photoData[imageOne].caption.text}}" />
   </a>
-  <a href="{{link}}" title="{{photoData[imageTwo].caption.text}}" target="_blank">
+  <a ng-show="showPhotoNumber > 1" href="{{link}}" title="{{photoData[imageTwo].caption.text}}" target="_blank">
       <img class='pics' src="{{photoData[imageTwo].images.standard_resolution.url}}" alt="{{photoData[imageTwo].caption.text}}" />
   </a>
-  <a href="{{link}}" title="{{photoData[imageThree].caption.text}}" target="_blank">
+  <a ng-show="showPhotoNumber > 2" href="{{link}}" title="{{photoData[imageThree].caption.text}}" target="_blank">
       <img class='pics' src="{{photoData[imageThree].images.standard_resolution.url}}" alt="{{photoData[imageThree].caption.text}}" />
   </a>
-  <a href="{{link}}" title="{{photoData[imageFour].caption.text}}" target="_blank">
+  <a ng-show="showPhotoNumber > 3" href="{{link}}" title="{{photoData[imageFour].caption.text}}" target="_blank">
       <img class='pics' src="{{photoData[imageFour].images.standard_resolution.url}}" alt="{{photoData[imageFour].caption.text}}" />
   </a>
 </div>

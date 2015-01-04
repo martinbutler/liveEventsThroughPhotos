@@ -1,6 +1,19 @@
 'use strict';
 
 angular.module('liveEventsThroughPhotosApp')
+  .config(function($dropdownProvider) {
+    angular.extend($dropdownProvider.defaults, {
+      animation: 'am-flip-x',
+      html: true
+      // trigger: 'hover'
+    });
+  })
+  .config(function($tooltipProvider) {
+    angular.extend($tooltipProvider.defaults, {
+      animation: 'am-flip-x',
+      trigger: 'hover'
+    });
+  })  
   .controller('PhotosCtrl', function ($scope, $http, socket, $timeout, $stateParams, $window) {
     
     $scope.photoData = [];
@@ -8,7 +21,7 @@ angular.module('liveEventsThroughPhotosApp')
     $scope.imageTwo = 1;
     $scope.imageThree = 2;
     $scope.imageFour = 19;
-    $scope.showPhotoNumber = 4;
+    $scope.showPhotoNumber = 2;
 
     var photoByLoc = false;
     if ($stateParams.lat !== undefined && $stateParams.long !== undefined) {
@@ -21,7 +34,6 @@ angular.module('liveEventsThroughPhotosApp')
     $scope.onTimeout = function(){
         if ($scope.photoData.length <= $scope.imageFour + $scope.showPhotoNumber) {
           if (photoByLoc) {
-            console.log('ding');
             $http.post('/api/instagrams/location', {lat: $stateParams.lat, lng: $stateParams.long}).success(function(photoData) {
               $scope.photoData = photoData;
             });
@@ -61,6 +73,25 @@ angular.module('liveEventsThroughPhotosApp')
 
     $scope.updateGeoTag = function () {
       $window.location.href = '/location';
+    }
+
+    $scope.dropdown = [
+      {
+        "text": "1 picture at a time",
+        "click": "updatePhotoNumber(1)"
+      },
+      {
+        "text": "2 pictures at a time",
+        "click": "updatePhotoNumber(2)"
+      },
+      {
+        "text": "4 pictures at a time",
+        "click": "updatePhotoNumber(4)"
+      }
+    ];
+
+    $scope.updatePhotoNumber = function (num) {
+      $scope.showPhotoNumber = num;
     }
     // $scope.addinstagram = function() {
     //   if($scope.newinstagram === '') {
