@@ -15,17 +15,15 @@
     class ='btn btn-primary tagForm locArrow fa fa-location-arrow'
     ng-click="updateGeoTag()">
   </button> 
-  <form 
-    data-title="Submit new tag for photos" placement="right" bs-tooltip
+  <div 
     class="form-wrapper cf hashtag">
-    <input type="text" placeholder="Enter new tag..." ng-model="newTag">
+    <input type="text" placeholder="Enter new tag..." ng-model="newTag" ng-keydown="keypress($event)">
     <button class='btn btn-primary' ng-click="updateTag()">#</button>
-  </form>
+  </div>
   <button 
   data-title="Change the number of photos" bs-tooltip
   type="button" class="btn btn-success hashtag" data-animation="am-flip-x" bs-dropdown="dropdown">{{showPhotoNumber}}
   </button>
-
 </div>
 
 <div class='clearIt center'>
