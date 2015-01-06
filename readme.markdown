@@ -32,4 +32,4 @@ Get Started:
 I was enjoying New Year's Eve with my wife from the comfort and warmth our home and thought of all those people that spent most of their day getting a great spot in Times Square to watch the ball drop. We can always see the TV coverage, but I thought it would be cool to see what people were posting on their public Instagram feeds as they were posting them.
 
 I'm planing some updates in the near future and would love to get your feedback!
-[Email Me](martinfullstack@gmail.com)
+[Email Me](mailto:martinfullstack@gmail.com)
